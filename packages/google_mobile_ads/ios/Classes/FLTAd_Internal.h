@@ -214,6 +214,8 @@
 @interface FLTInterstitialAd : FLTFullScreenAd
 - (instancetype _Nonnull)initWithAdUnitId:(NSString *_Nonnull)adUnitId
                                   request:(FLTAdRequest *_Nonnull)request
+                       rootViewController:
+                           (UIViewController *_Nonnull)rootViewController
                                      adId:(NSNumber *_Nonnull)adId;
 - (GADInterstitialAd *_Nullable)interstitial;
 - (NSString *_Nonnull)adUnitId;
@@ -224,12 +226,16 @@
 @interface FLTGAMInterstitialAd : FLTInterstitialAd <GADAppEventDelegate>
 - (instancetype _Nonnull)initWithAdUnitId:(NSString *_Nonnull)adUnitId
                                   request:(FLTGAMAdRequest *_Nonnull)request
+                       rootViewController:
+                           (UIViewController *_Nonnull)rootViewController
                                      adId:(NSNumber *_Nonnull)adId;
 @end
 
 @interface FLTRewardedAd : FLTFullScreenAd
 - (instancetype _Nonnull)initWithAdUnitId:(NSString *_Nonnull)adUnitId
                                   request:(FLTAdRequest *_Nonnull)request
+                       rootViewController:
+                           (UIViewController *_Nonnull)rootViewController
                                      adId:(NSNumber *_Nonnull)adId;
 - (GADRewardedAd *_Nullable)rewardedAd;
 - (void)setServerSideVerificationOptions:
@@ -239,6 +245,8 @@
 @interface FLTRewardedInterstitialAd : FLTFullScreenAd
 - (instancetype _Nonnull)initWithAdUnitId:(NSString *_Nonnull)adUnitId
                                   request:(FLTAdRequest *_Nonnull)request
+                       rootViewController:
+                           (UIViewController *_Nonnull)rootViewController
                                      adId:(NSNumber *_Nonnull)adId;
 - (GADRewardedInterstitialAd *_Nullable)rewardedInterstitialAd;
 - (void)setServerSideVerificationOptions:
@@ -248,6 +256,8 @@
 @interface FLTAppOpenAd : FLTFullScreenAd
 - (instancetype _Nonnull)initWithAdUnitId:(NSString *_Nonnull)adUnitId
                                   request:(FLTAdRequest *_Nonnull)request
+                       rootViewController:
+                           (UIViewController *_Nonnull)rootViewController
                                      adId:(NSNumber *_Nonnull)adId;
 - (GADAppOpenAd *_Nullable)appOpenAd;
 @end

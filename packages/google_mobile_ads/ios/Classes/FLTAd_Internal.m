@@ -674,17 +674,20 @@
 @implementation FLTInterstitialAd {
   GADInterstitialAd *_interstitialView;
   FLTAdRequest *_adRequest;
+  UIViewController *_rootViewController;
   NSString *_adUnitId;
 }
 
 - (instancetype)initWithAdUnitId:(NSString *_Nonnull)adUnitId
                          request:(FLTAdRequest *_Nonnull)request
+              rootViewController:(UIViewController *_Nonnull)rootViewController
                             adId:(NSNumber *_Nonnull)adId {
   self = [super init];
   if (self) {
     self.adId = adId;
     _adRequest = request;
     _adUnitId = [adUnitId copy];
+    _rootViewController = rootViewController;
   }
   return self;
 }
@@ -728,7 +731,7 @@
 
 - (void)show {
   if (self.interstitial) {
-    [self.interstitial presentFromRootViewController:nil];
+    [self.interstitial presentFromRootViewController:_rootViewController];
   } else {
     NSLog(@"InterstitialAd failed to show because the ad was not ready.");
   }
@@ -741,17 +744,20 @@
 @implementation FLTGAMInterstitialAd {
   GAMInterstitialAd *_insterstitial;
   FLTGAMAdRequest *_adRequest;
+  UIViewController *_rootViewController;
   NSString *_adUnitId;
 }
 
 - (instancetype)initWithAdUnitId:(NSString *_Nonnull)adUnitId
                          request:(FLTGAMAdRequest *_Nonnull)request
+              rootViewController:(UIViewController *_Nonnull)rootViewController
                             adId:(NSNumber *_Nonnull)adId {
   self = [super init];
   if (self) {
     self.adId = adId;
     _adRequest = request;
     _adUnitId = [adUnitId copy];
+    _rootViewController = rootViewController;
   }
   return self;
 }
@@ -791,7 +797,7 @@
 
 - (void)show {
   if (self.interstitial) {
-    [self.interstitial presentFromRootViewController:nil];
+    [self.interstitial presentFromRootViewController:_rootViewController];
   } else {
     NSLog(@"InterstitialAd failed to show because the ad was not ready.");
   }
@@ -811,16 +817,19 @@
 @implementation FLTRewardedAd {
   GADRewardedAd *_rewardedView;
   FLTAdRequest *_adRequest;
+  UIViewController *_rootViewController;
   NSString *_adUnitId;
 }
 
 - (instancetype)initWithAdUnitId:(NSString *_Nonnull)adUnitId
                          request:(FLTAdRequest *_Nonnull)request
+              rootViewController:(UIViewController *_Nonnull)rootViewController
                             adId:(NSNumber *_Nonnull)adId {
   self = [super init];
   if (self) {
     self.adId = adId;
     _adRequest = request;
+    _rootViewController = rootViewController;
     _adUnitId = [adUnitId copy];
   }
   return self;
@@ -872,7 +881,7 @@
 - (void)show {
   if (self.rewardedAd) {
     [self.rewardedAd
-        presentFromRootViewController:nil
+        presentFromRootViewController:_rootViewController
              userDidEarnRewardHandler:^{
                GADAdReward *reward = self.rewardedAd.adReward;
                FLTRewardItem *fltReward =
@@ -903,16 +912,19 @@
 @implementation FLTRewardedInterstitialAd {
   GADRewardedInterstitialAd *_rewardedInterstitialView;
   FLTAdRequest *_adRequest;
+  UIViewController *_rootViewController;
   NSString *_adUnitId;
 }
 
 - (instancetype)initWithAdUnitId:(NSString *_Nonnull)adUnitId
                          request:(FLTAdRequest *_Nonnull)request
+              rootViewController:(UIViewController *_Nonnull)rootViewController
                             adId:(NSNumber *_Nonnull)adId {
   self = [super init];
   if (self) {
     self.adId = adId;
     _adRequest = request;
+    _rootViewController = rootViewController;
     _adUnitId = [adUnitId copy];
   }
   return self;
@@ -967,7 +979,7 @@
 - (void)show {
   if (self.rewardedInterstitialAd) {
     [self.rewardedInterstitialAd
-        presentFromRootViewController:nil
+        presentFromRootViewController:_rootViewController
              userDidEarnRewardHandler:^{
                GADAdReward *reward = self.rewardedInterstitialAd.adReward;
                FLTRewardItem *fltReward =
@@ -1000,16 +1012,20 @@
 @implementation FLTAppOpenAd {
   GADAppOpenAd *_appOpenAd;
   FLTAdRequest *_adRequest;
+  UIViewController *_rootViewController;
   NSString *_adUnitId;
 }
 
 - (instancetype _Nonnull)initWithAdUnitId:(NSString *_Nonnull)adUnitId
                                   request:(FLTAdRequest *_Nonnull)request
+                       rootViewController:
+                           (UIViewController *_Nonnull)rootViewController
                                      adId:(NSNumber *_Nonnull)adId {
   self = [super init];
   if (self) {
     self.adId = adId;
     _adRequest = request;
+    _rootViewController = rootViewController;
     _adUnitId = [adUnitId copy];
   }
   return self;
@@ -1061,7 +1077,7 @@
 
 - (void)show {
   if (self.appOpenAd) {
-    [self.appOpenAd presentFromRootViewController:nil];
+    [self.appOpenAd presentFromRootViewController:_rootViewController];
   } else {
     NSLog(@"AppOpenAd failed to show because the ad was not ready.");
   }
